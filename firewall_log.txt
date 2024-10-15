@@ -1,0 +1,3 @@
+
+2024-10-15 09:51:54 - IP: 192.168.1.10, Port: 80 - Action: Blocked
+2024-10-15 10:00:17 - IP: 10.0.0.1, Port: 22 - Action: Blocked

@@ -1,0 +1,31 @@
+# Block unauthorized access to the camera
+192.168.1.100 80 block       # Block HTTP access from unauthorized IPs
+192.168.1.100 443 block      # Block HTTPS access from unauthorized IPs
+
+# Allow access from trusted management systems
+192.168.1.50 80 allow        # Allow HTTP access for trusted management
+192.168.1.50 443 allow       # Allow HTTPS access for trusted management
+
+# Allow access to camera feed from specific devices
+192.168.1.10 80 allow        # Allow access to camera feed from trusted device
+192.168.1.20 80 allow        # Allow access to camera feed from trusted device
+
+# Block potential attack vectors
+0.0.0.0 23 block              # Block Telnet access (common vulnerability)
+0.0.0.0 21 block              # Block FTP access (not secure)
+0.0.0.0 23 block              # Block SSH access (unless explicitly allowed)
+
+# Allow internal network access
+192.168.1.0/24 80 allow       # Allow all internal network traffic for HTTP
+192.168.1.0/24 443 allow      # Allow all internal network traffic for HTTPS
+
+# Block external access to critical ports
+0.0.0.0 22 block              # Block SSH access from outside
+0.0.0.0 23 block              # Block Telnet access from outside
+0.0.0.0 8080 block            # Block non-standard ports to prevent exploitation
+
+# Allow access to NTP for time synchronization
+192.168.1.100 123 allow       # Allow NTP access for time synchronization
+
+# Allow DNS queries
+192.168.1.100 53 allow        # Allow DNS queries from the camera
